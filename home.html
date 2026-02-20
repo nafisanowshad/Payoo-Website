@@ -46,18 +46,17 @@
         </section>
     </header>
 
-
     <section class="w-11/12 mx-auto py-10 space-y-5">
         <h2 class="text-3xl font-bold">Welcome to Pay<span class="text-primary">oo</span></h2>
         <p class="text-neutral/50">Enjoy easy and convenient services with us. Cashout is low and </p>
 
         <div class="buttons grid grid-cols-3 gap-3">
-            <button class="btn flex-col h-full py-4 btn-primary btn-soft">
+            <button onclick="showOnly('add-money')" class="btn flex-col h-full py-4 btn-primary btn-soft">
                 <img src="assets/opt-1.png" alt="">
                 <p>Add Money</p>
             </button>
 
-            <button class="btn flex-col h-full py-4 btn-primary btn-soft">
+            <button onclick="showOnly('cashout')" class="btn flex-col h-full py-4 btn-primary btn-soft">
                 <img src="assets/opt-2.png" alt="">
                 <p>Cashout</p>
             </button>
@@ -77,7 +76,7 @@
                 <p>Pay Bill</p>
             </button>
 
-            <button class="btn flex-col h-full py-4 btn-primary btn-soft">
+            <button onclick="showOnly('history')" class="btn flex-col h-full py-4 btn-primary btn-soft">
                 <img src="assets/opt-6.png" alt="">
                 <p>Transactions</p>
             </button>
@@ -85,8 +84,40 @@
         </div>
     </section>
 
+    <section id="add-money" class="w-11/12 mx-auto py-5 hidden">
+        <h2 class="text-xl font-bold ">Add Money</h2>
+        <div class="card bg-base-100 w-full shadow rounded-2xl">
+            <div class="card-body">
+                <fieldset class="fieldset">
+
+                    <label class="label text-neutral font-bold">Select Bank</label>
+                    <select id="add-money-bank" class="select w-full bg-base-200 rounded-full">
+                        <option disabled selected>Select a Bank</option>
+                        <option value="DBBL">DBBL</option>
+                        <option value="IBBL">IBBL</option>
+                        <option value="CITY">City Bank</option>
+                    </select>
+
+                    <label class="label text-neutral font-bold">Bank Account Number</label>
+                    <input id="add-money-number" maxlength="11" minlength="11" type="text"
+                        class="input rounded-full bg-base-200 w-full" placeholder="Enter Bank 11 Digit Number" />
+                    <br>
+                    <label class="label text-neutral font-bold">Amount to Add</label>
+                    <input id="add-money-amount" type="number" class="input rounded-full bg-base-200 w-full"
+                        placeholder="Enter Amount to Add" />
+                    <br>
+                    <label class="label text-neutral font-bold">4 Digit Pin</label>
+                    <input id="add-money-pin" type="password" maxlength="4" class="input rounded-full bg-base-200 w-full"
+                        placeholder="Enter 4 Digit Pin" />
+                    <div></div>
+                    <button id="add-money-btn" class="btn btn-primary mt-4 rounded-full">Add Money</button>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+
     <section id="cashout" class="w-11/12 mx-auto py-5">
-        <h2 class="text-xl font-bold ">Cashout</h2>
+        <h2 class="text-xl font-bold mb-5">Cashout</h2>
         <div class="card bg-base-100 w-full shadow rounded-2xl">
             <div class="card-body">
                 <fieldset class="fieldset">
@@ -108,6 +139,17 @@
         </div>
     </section>
 
+    <section id="history" class="w-11/12 mx-auto py-5 hidden">
+         <h2 class="text-xl font-bold mb-5">Transactions</h2>
+         <div class="space-y-5" id="history-container">
+            <!-- <div class="transaction-card p-5 bg-base-100">
+
+            </div> -->
+         </div>
+    </section>
+
+    <script src="scripts/machine.js"></script>
+    <script src="scripts/addMoney.js"></script>
     <script src="scripts/cashout.js"></script>
 
 </body>
